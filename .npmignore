@@ -1,0 +1,13 @@
+node_modules
+build
+public
+src
+.babelrc
+.gitignore
+postcss.config.js
+tailwind.config.js
+tsconfig.json
+yarn.lock
+package-lock.json
+*.log
+*.md
