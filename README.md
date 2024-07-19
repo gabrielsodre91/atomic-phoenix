@@ -1,46 +1,124 @@
-# Getting Started with Create React App
+# Atomic Phoenix
+A library of React components developed by [SoftPhoenix](https://www.softphoenix.tech)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+```bash
+yarn add atomic-phoenix
+```
 
-In the project directory, you can run:
+## Usage
 
-### `npm start`
+Here's an example of how to use the `LoginForm` component in your project:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```tsx
+import React from 'react';
+import { LoginForm } from 'atomic-phoenix';
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+const App: React.FC = () => {
+  const handleLogin = (data: { email: string; password: string }) => {
+    console.log('Login data:', data);
+  };
 
-### `npm test`
+  const handleSignup = () => {
+    console.log('Navigate to signup page');
+  };
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  const handleForgotPassword = () => {
+    console.log('Navigate to forgot password page');
+  };
 
-### `npm run build`
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <LoginForm
+        submit={handleLogin}
+        signup={handleSignup}
+        forgotPassword={handleForgotPassword}
+      />
+    </div>
+  );
+};
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export default App;
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js (version 14 or above)
+- npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Build the Project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To build the project, run the following command:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+yarn build
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This will compile the TypeScript code and process the CSS files using PostCSS, generating the output in the `dist` directory.
 
-## Learn More
+### Updating the Package
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Make your changes to the component or styles.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Ensure that the package is correctly built:
+
+    ```bash
+    yarn build
+    ```
+
+3. Verify the changes by testing the built package in a local project if necessary.
+
+4. Update the version number in `package.json` according to semantic versioning:
+
+    ```json
+    {
+      "version": "1.0.1"
+    }
+    ```
+
+5. Publish the package to npm:
+
+    ```bash
+    npm publish
+    ```
+
+### Adding a New Component
+
+1. Create a new component file in the `src/components` directory.
+
+2. Import any necessary styles and dependencies.
+
+3. Ensure the new component is exported in `src/index.ts`:
+
+    ```tsx
+    export { default as LoginForm } from './components/LoginForm';
+    // Add your new component export here
+    ```
+
+4. Build the project:
+
+    ```bash
+    yarn build
+    ```
+
+5. Update the README to document the new component's usage.
+
+6. Increment the version number in `package.json`.
+
+7. Publish the updated package:
+
+    ```bash
+    npm publish
+    ```
+
+## Contributing
+
+Contributions are welcome! Please submit a pull request or open an issue to discuss changes or additions.
+
+## License
+
+This project is licensed under the MIT License.
+```
