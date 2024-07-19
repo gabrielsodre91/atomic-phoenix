@@ -1,6 +1,6 @@
 {
   "name": "atomic-phoenix",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "private": false,
@@ -24,8 +24,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "build": "tsc && babel src --out-dir dist --extensions \".js,.jsx,.ts,.tsx\" && node build-css.js",
     "start": "react-scripts start",
-    "build": "tsc && babel src --out-dir dist --extensions \".js,.jsx,.ts,.tsx\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -54,6 +54,7 @@
     "@babel/preset-typescript": "^7.24.7",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
+    "postcss-cli": "^11.0.0",
     "tailwindcss": "^3.4.6"
   }
 }

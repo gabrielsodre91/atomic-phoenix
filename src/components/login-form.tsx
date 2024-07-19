@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useSpring, animated } from 'react-spring';
 import { TextField, Button } from '@mui/material';
+import '../../dist/tailwind.css';
 
 interface LoginFormProps {
   submit: (data: LoginFormData) => void;
